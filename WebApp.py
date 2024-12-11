@@ -1,6 +1,8 @@
 import streamlit as st
 from PIL import Image, ImageFilter
 from io import BytesIO
+import cv2
+import numpy as np
 
 # Function for the navigation bar
 def nav_bar():
