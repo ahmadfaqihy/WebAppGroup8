@@ -5,6 +5,31 @@ import cv2
 import numpy as np
 
 # Function for the navigation bar
+def nav_bar():
+    st.markdown(
+        """
+        <style>
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-bar a:hover {
+            color: #ffcccb;
+        }
+        .active {
+            color: #ffcccb;
+            text-decoration: underline;
      }
         </style>
         <div class="nav-bar">
