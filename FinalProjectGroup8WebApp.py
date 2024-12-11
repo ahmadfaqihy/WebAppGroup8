@@ -26,7 +26,7 @@ if menu == "Home":
         """
         <div class="Home">
             <h1>Welcome to Group 8 Website Image Filtering Application!</h1>
-            <h2>Explore various capability to alter your image using the application of Image Processing with Linear Algebra Principle:</h2>
+            <h5>Explore various capability to alter your image using the application of Image Processing with Linear Algebra Principle:</h5>
             <ul style="text-align: left;">
                 <li>Upload and process your images</li>
                 <li>Convert to grayscale, blur, sepia tone, contour, sharpness adjustment, and many more!</li>
