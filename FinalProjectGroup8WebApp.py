@@ -49,7 +49,7 @@ elif menu == "Apply Filter":
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        st.image(image, caption="Uploaded Image", use__width=True)
+        st.image(image, caption="Uploaded Image", use_container_width=True)
 
         # Sharpness Filter
         sharpness_factor = st.slider("Adjust Sharpness", 0.0, 3.0, 1.0, 0.1)
@@ -70,29 +70,29 @@ elif menu == "Apply Filter":
         brightness_enhancer = ImageEnhance.Brightness(image)
         brightness_image = brightness_enhancer.enhance(brightness_factor)
         if st.button("Apply Brightness"):
-            st.image(brightness_image, caption="Brightness Adjusted Image", use_container_width=True)
+            st.image(brightness_image, caption="Brightness Adjusted Image", use_container_=True)
 
         # Color Filter
         color_factor = st.slider("Adjust Color", 0.0, 3.0, 1.0, 0.1)
         color_enhancer = ImageEnhance.Color(image)
         color_image = color_enhancer.enhance(color_factor)
         if st.button("Apply Color Adjustment"):
-            st.image(color_image, caption="Color Adjusted Image", use_container_width=True)
+            st.image(color_image, caption="Color Adjusted Image", use_container_=True)
 
         # Edge Enhancement Filter
         if st.button("Apply Edge Enhancement"):
             edge_image = image.filter(ImageFilter.EDGE_ENHANCE)
-            st.image(edge_image, caption="Edge Enhanced Image", use_container_width=True)
+            st.image(edge_image, caption="Edge Enhanced Image", use_container_=True)
 
         # Emboss Filter
         if st.button("Apply Emboss"):
             emboss_image = image.filter(ImageFilter.EMBOSS)
-            st.image(emboss_image, caption="Embossed Image", use_container_width=True)
+            st.image(emboss_image, caption="Embossed Image", use_container_=True)
 
         # Contour Filter
         if st.button("Apply Contour"):
             contour_image = image.filter(ImageFilter.CONTOUR)
-            st.image(contour_image, caption="Contoured Image", use_container_width=True)
+            st.image(contour_image, caption="Contoured Image", use_container_=True)
 
         # Gaussian Blur Filter
         blur_radius = st.slider("Adjust Gaussian Blur Radius", 0.0, 10.0, 1.0, 0.1)
