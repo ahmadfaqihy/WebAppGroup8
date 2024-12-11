@@ -47,7 +47,7 @@ def nav_bar():
     )
 
 # Extract current page from query params
-menu = st.experimental_get_query_params().get("page", ["Landing Page"])[0]
+menu = st.query_params().get("page", ["Landing Page"])[0]
 
 # Display the navigation bar
 nav_bar()
@@ -82,21 +82,6 @@ if menu == "Landing Page":
         unsafe_allow_html=True,
     )
 
-    st.markdown(
-        """
-        <div class="landing-page">
-            <h1>Welcome to the Image Processing App</h1>
-            <p>Explore the capabilities of this web application:</p>
-            <ul style="text-align: left;">
-                <li>Upload and process your images</li>
-                <li>Convert to grayscale, blur, and apply edge detection</li>
-                <li>Download the processed images</li>
-            </ul>
-            <p>Use the sidebar to navigate to the application!</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
 # Image Processing Application
 elif menu == "Image Processing Application":
@@ -140,4 +125,3 @@ elif menu == "Image Processing Application":
                 file_name="blurred_image.jpg",
                 mime="image/jpeg"
             )
-
