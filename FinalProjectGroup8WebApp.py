@@ -8,7 +8,7 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 
 # Sidebar navigation
-menu = st.sidebar.selectbox("Select Page", ["Home", "Apply Filter"])
+menu = st.sidebar.selectbox("Select Page", ["Home", "Apply Filter", "Group 8"])
 
 # Landing Page
 if menu == "Home":
@@ -31,9 +31,9 @@ if menu == "Home":
         """
         <div class="Home">
             <h1>Welcome to Group 8 Website Image Filtering Application!</h1>
-            <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/logo%20pu%20removed.png" alt="Logo" style="width: 200px; display: block; margin-left: auto; margin-right: auto;">
+        
             <p>Explore various capability to alter your image using the application of Image Processing with Linear Algebra Principle:</p>
-            <ul style="text-align: left;">
+            <ul style="text-align: center;">
                 <li>Upload and process your images</li>
                 <li>Convert to grayscale, blur, sepia tone, contour, sharpness adjustment, and many more!</li>
                 <li>Download the processed images</li>
@@ -42,10 +42,47 @@ if menu == "Home":
             <p>Group 8 - N IE 01</p>
             <p>Industrial Engineering - Faculty of Engineering</p>
             <p>President University</p>
+            <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/logo%20pu%20removed.png" alt="Logo" style="width: 200px; display: block; margin-left: auto; margin-right: auto;">
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+elif menu == "Group 8":
+       st.markdown(
+        """
+        <style>
+        .Home {
+            text-align: center;
+            padding: 50px;
+            background-color: #edeefc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
+        <div class="Home">
+            <h1>Group 8 Introduction/h1>
+        
+            <p>Explore various capability to alter your image using the application of Image Processing with Linear Algebra Principle:</p>
+            <ul style="text-align: center;">
+                <li>Upload and process your images</li>
+                <li>Convert to grayscale, blur, sepia tone, contour, sharpness adjustment, and many more!</li>
+                <li>Download the processed images</li>
+            </ul>
+            <p>Use the sidebar to navigate to the application!</p>
+            <p>Group 8 - N IE 01</p>
+            <p>Industrial Engineering - Faculty of Engineering</p>
+            <p>President University</p>
+            <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/logo%20pu%20removed.png" alt="Logo" style="width: 200px; display: block; margin-left: auto; margin-right: auto;">
+        </div>
+        """,
+        unsafe_allow_html=True,
 
 # Apply Filter
 elif menu == "Apply Filter":
