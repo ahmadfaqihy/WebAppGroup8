@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageEnhance
 from io import BytesIO
 
 # Sidebar navigation
