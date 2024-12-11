@@ -18,7 +18,7 @@ if menu == "Home":
         .Home {
             text-align: center;
             padding: 50px;
-            background-color: #274242;
+            background-color: #edeefc;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
