@@ -14,12 +14,12 @@ uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     # Display the uploaded image
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)
 
     # Convert to Grayscale
     if st.button("Convert to Grayscale"):
         gray_image = image.convert("L")
-        st.image(gray_image, caption="Grayscale Image", use_column_width=True)
+        st.image(gray_image, caption="Grayscale Image", use_container_width=True)
         buffer = BytesIO()
         gray_image.save(buffer, format="JPEG")
         buffer.seek(0)
@@ -33,7 +33,7 @@ if uploaded_file is not None:
     # Apply Blur
     if st.button("Apply Blur"):
         blurred_image = image.filter(ImageFilter.BLUR)
-        st.image(blurred_image, caption="Blurred Image", use_column_width=True)
+        st.image(blurred_image, caption="Blurred Image", use_container_width=True)
         buffer = BytesIO()
         blurred_image.save(buffer, format="JPEG")
         buffer.seek(0)
