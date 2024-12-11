@@ -8,14 +8,14 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 
 # Sidebar navigation
-menu = st.sidebar.selectbox("Select Page", ["Landing Page", "Image Processing Application"])
+menu = st.sidebar.selectbox("Select Page", ["Home", "Apply Filter"])
 
 # Landing Page
-if menu == "Landing Page":
+if menu == "Home":
     st.markdown(
         """
         <style>
-        .landing-page {
+        .Home {
             text-align: center;
             padding: 50px;
             background-color: #f8f9fa;
@@ -29,7 +29,7 @@ if menu == "Landing Page":
 
     st.markdown(
         """
-        <div class="landing-page">
+        <div class="Home">
             <h1>Welcome to the Image Processing App</h1>
             <p>Explore the capabilities of this web application:</p>
             <ul style="text-align: left;">
@@ -43,9 +43,9 @@ if menu == "Landing Page":
         unsafe_allow_html=True,
     )
 
-# Image Processing Application
-elif menu == "Image Processing Application":
-    st.title("Image Processing Application")
+# Apply Filter
+elif menu == "Apply Filter":
+    st.title("Apply Filter")
     st.write("Upload an image and perform basic processing tasks.")
 
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
