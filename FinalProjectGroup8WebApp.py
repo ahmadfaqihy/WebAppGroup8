@@ -35,7 +35,6 @@ if menu == "Home":
             <p>Use the sidebar to navigate to the application!</p>
             <p>Group 8 - N IE 01</p>
             <p>Industrial Engineering - Faculty of Engineering</p>
-            <p>President University</p>
             <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/logo%20pu%20removed.png" alt="Logo" style="width: 200px; display: block; margin-left: auto; margin-right: auto;">
         </div>
         """,
@@ -50,21 +49,21 @@ elif menu == "Apply Filter":
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        st.image(image, caption="Uploaded Image", use_container_width=True)
+        st.image(image, caption="Uploaded Image", use__width=True)
 
         # Sharpness Filter
         sharpness_factor = st.slider("Adjust Sharpness", 0.0, 3.0, 1.0, 0.1)
         sharpness_enhancer = ImageEnhance.Sharpness(image)
         sharp_image = sharpness_enhancer.enhance(sharpness_factor)
         if st.button("Apply Sharpness"):
-            st.image(sharp_image, caption="Sharpness Adjusted Image", use_container_width=True)
+            st.image(sharp_image, caption="Sharpness Adjusted Image", use__width=True)
 
         # Contrast Filter
         contrast_factor = st.slider("Adjust Contrast", 0.0, 3.0, 1.0, 0.1)
         contrast_enhancer = ImageEnhance.Contrast(image)
         contrast_image = contrast_enhancer.enhance(contrast_factor)
         if st.button("Apply Contrast"):
-            st.image(contrast_image, caption="Contrast Adjusted Image", use_container_width=True)
+            st.image(contrast_image, caption="Contrast Adjusted Image", use__width=True)
 
         # Brightness Filter
         brightness_factor = st.slider("Adjust Brightness", 0.0, 3.0, 1.0, 0.1)
