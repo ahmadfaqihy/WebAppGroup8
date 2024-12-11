@@ -4,6 +4,7 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 import cv2
 import numpy as np
+
 # Function for the navigation bar
 def nav_bar():
     st.markdown(
@@ -46,13 +47,13 @@ def nav_bar():
     )
 
 # Extract current page from query params
-current_page = st.experimental_get_query_params().get("page", ["Landing Page"])[0]
+menu = st.experimental_get_query_params().get("page", ["Landing Page"])[0]
 
 # Display the navigation bar
 nav_bar()
 
 # Page logic
-if current_page == "Landing Page":
+if menu == "Landing Page":
     st.title("Welcome to the Image Processing App")
     st.write(
         """
@@ -139,3 +140,4 @@ elif menu == "Image Processing Application":
                 file_name="blurred_image.jpg",
                 mime="image/jpeg"
             )
+
