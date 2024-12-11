@@ -4,9 +4,6 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 import cv2
 import numpy as np
-import streamlit as st
-from PIL import Image, ImageFilter
-from io import BytesIO
 
 # Function for the navigation bar
 def nav_bar():
@@ -50,13 +47,13 @@ def nav_bar():
     )
 
 # Extract current page from query params
-current_page = st.query_params().get("page", ["Landing Page"])[0]
+menu = st.query_params().get("page", ["Landing Page"])[0]
 
 # Display the navigation bar
 nav_bar()
 
 # Page logic
-if current_page == "Landing Page":
+if menu == "Landing Page":
     st.title("Welcome to the Image Processing App")
     st.write(
         """
@@ -67,8 +64,30 @@ if current_page == "Landing Page":
         - Detect edges with advanced algorithms
         """
     )
-elif current_page == "Application":
+
+# Landing Page
+if menu == "Landing Page":
+    st.markdown(
+        """
+        <style>
+        .landing-page {
+            text-align: center;
+            padding: 50px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+# Image Processing Application
+elif menu == "Image Processing Application":
     st.title("Image Processing Application")
+    st.write("Upload an image and perform basic processing tasks.")
+
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
@@ -106,4 +125,3 @@ elif current_page == "Application":
                 file_name="blurred_image.jpg",
                 mime="image/jpeg"
             )
-            
