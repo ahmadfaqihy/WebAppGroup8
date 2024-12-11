@@ -102,16 +102,12 @@ elif menu == "Apply Filter":
 
 elif menu == "Meet the Members":
     st.title("Meet the Members of Group 8")
-    st.markdown("Ahmad Faqih Yassin")
-    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/3.png", caption="Member 1 Name")
+    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/3.png", caption="Ahmad Faqih Yassin")
     st.write("Role: Team Leader")
     st.write("004202305045")
 
-    st.markdown("Miftakhul Adam")
-    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/2.png", caption="Member 2 Name")
+    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/2.png", caption="Miftakhul Adam")
     st.write("004202305068")
 
-    st.markdown("Ridho Alhabsy")
-    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/1.png", caption="Member 3 Name")
-    st.write("Role: Designer")
+    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/1.png", caption="Ridho Alhabsy")
     st.write("004202305068")
