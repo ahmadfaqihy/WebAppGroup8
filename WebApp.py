@@ -18,7 +18,7 @@ if menu == "Home":
         .Home {
             text-align: center;
             padding: 50px;
-            background-color: #f8f9fa;
+            background-color: #274242;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -30,14 +30,17 @@ if menu == "Home":
     st.markdown(
         """
         <div class="Home">
-            <h1>Welcome to the Image Processing App</h1>
-            <p>Explore the capabilities of this web application:</p>
+            <h1>Welcome to Group 8 Website Image Filtering Application!</h1>
+            <p>Explore various capability to alter your image using the application of Image Processing with Linear Algebra Principle:</p>
             <ul style="text-align: left;">
                 <li>Upload and process your images</li>
-                <li>Convert to grayscale, blur, and apply edge detection</li>
+                    <li>Convert to grayscale, blur, sepia tone, contour, sharpness adjustment, and many more!</li>
                 <li>Download the processed images</li>
             </ul>
             <p>Use the sidebar to navigate to the application!</p>
+            <p>Group 8 - N IE 01</p>
+            <p>Industrial Engineering - Faculty of Engineering</p>
+            <p>President University</p>
         </div>
         """,
         unsafe_allow_html=True,
