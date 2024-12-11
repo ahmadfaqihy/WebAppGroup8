@@ -3,7 +3,7 @@ from PIL import Image, ImageFilter, ImageEnhance
 from io import BytesIO
 
 # Sidebar navigation
-menu = st.sidebar.selectbox("Select Page", ["Home", "Apply Filter", "Meet the Members"])
+menu = st.sidebar.selectbox("Select Page", ["Home", "Meet the Members", "Apply Filter"])
 
 # Landing Page
 if menu == "Home":
@@ -32,7 +32,7 @@ if menu == "Home":
                 <li>Convert to grayscale, blur, sepia tone, contour, sharpness adjustment, and many more!</li>
                 <li>Download the processed images</li>
             </ul>
-            <p>Use the sidebar to navigate to the application!</p>
+            <p>Use the sidebar to navigate to the application.</p>
             <p>Group 8 - N IE 01</p>
             <p>Industrial Engineering - Faculty of Engineering</p>
             <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/logo%20pu%20removed.png" alt="Logo" style="width: 200px; display: block; margin-left: auto; margin-right: auto;">
@@ -102,17 +102,16 @@ elif menu == "Apply Filter":
 
 elif menu == "Meet the Members":
     st.title("Meet the Members of Group 8")
-    st.markdown("### Member 1")
-    st.image("https://via.placeholder.com/150", caption="Member 1 Name")
+    st.markdown("Ahmad Faqih Yassin")
+    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/3.png", caption="Member 1 Name")
     st.write("Role: Team Leader")
-    st.write("Description: Brief description about Member 1.")
+    st.write("004202305045")
 
-    st.markdown("### Member 2")
-    st.image("https://via.placeholder.com/150", caption="Member 2 Name")
-    st.write("Role: Developer")
-    st.write("Description: Brief description about Member 2.")
+    st.markdown("Miftakhul Adam")
+    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/2.png", caption="Member 2 Name")
+    st.write("004202305068")
 
-    st.markdown("### Member 3")
-    st.image("https://via.placeholder.com/150", caption="Member 3 Name")
+    st.markdown("Ridho Alhabsy")
+    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/1.png", caption="Member 3 Name")
     st.write("Role: Designer")
-    st.write("Description: Brief description about Member 3.")
+    st.write("004202305068")
