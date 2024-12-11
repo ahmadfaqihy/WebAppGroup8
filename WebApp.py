@@ -3,73 +3,51 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 import cv2
 import numpy as np
+import streamlit as st
+from PIL import Image, ImageFilter
+from io import BytesIO
 
-# Initialize session state for navigation
-if "current_page" not in st.session_state:
-    st.session_state.current_page = "Landing Page"
+# Sidebar navigation
+menu = st.sidebar.selectbox("Select Page", ["Landing Page", "Image Processing Application"])
 
-# Function to handle page navigation
-def nav_bar():
+# Landing Page
+if menu == "Landing Page":
     st.markdown(
         """
         <style>
-        .nav-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #007bff;
-            padding: 10px;
+        .landing-page {
+            text-align: center;
+            padding: 50px;
+            background-color: #f8f9fa;
             border-radius: 5px;
-        }
-        .nav-bar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .nav-bar a:hover {
-            color: #ffcccb;
-        }
-        .active {
-            color: #ffcccb;
-            text-decoration: underline;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         </style>
-        <div class="nav-bar">
-            <a href="#" onclick="setPage('Landing Page')">Landing Page</a>
-            <a href="#" onclick="setPage('Application')">Image Processing Application</a>
-        </div>
-        <script>
-        function setPage(page) {
-            fetch('/_stcore_set_state', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ key: 'current_page', value: page })
-            }).then(() => location.reload());
-        }
-        </script>
         """,
         unsafe_allow_html=True,
     )
 
-# Display the navigation bar
-nav_bar()
-
-# Page logic based on session state
-if st.session_state.current_page == "Landing Page":
-    st.title("Welcome to the Image Processing App")
-    st.write(
+    st.markdown(
         """
-        Explore the features of this web application:
-        - Upload and process images
-        - Convert images to grayscale
-        - Apply blur effects
-        - Detect edges with advanced algorithms
-        """
+        <div class="landing-page">
+            <h1>Welcome to the Image Processing App</h1>
+            <p>Explore the capabilities of this web application:</p>
+            <ul style="text-align: left;">
+                <li>Upload and process your images</li>
+                <li>Convert to grayscale, blur, and apply edge detection</li>
+                <li>Download the processed images</li>
+            </ul>
+            <p>Use the sidebar to navigate to the application!</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
-elif st.session_state.current_page == "Application":
+
+# Image Processing Application
+elif menu == "Image Processing Application":
     st.title("Image Processing Application")
+    st.write("Upload an image and perform basic processing tasks.")
+
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
