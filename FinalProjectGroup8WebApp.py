@@ -3,7 +3,7 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 
 # Sidebar navigation
-menu = st.sidebar.selectbox("Select Page", ["Home", "Apply Filter", "Group 8", "Meet the Members"])
+menu = st.sidebar.selectbox("Select Page", ["Home", "Apply Filter", "Meet the Members"])
 
 # Landing Page
 if menu == "Home":
@@ -48,7 +48,7 @@ elif menu == "Group 8":
 
 elif menu == "Apply Filter":
     st.title("Apply Filter")
-    st.write("Upload an image and perform basic processing tasks.")
+    st.write("Upload an image and perform various processing tasks.")
 
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
@@ -56,37 +56,54 @@ elif menu == "Apply Filter":
         image = Image.open(uploaded_file)
         st.image(image, caption="Uploaded Image", use_column_width=True)
 
-        # Convert to Grayscale
-        if st.button("Convert to Grayscale"):
-            gray_image = image.convert("L")
-            st.image(gray_image, caption="Grayscale Image", use_column_width=True)
+        # Sharpness Filter
+        sharpness_factor = st.slider("Adjust Sharpness", 0.0, 3.0, 1.0, 0.1)
+        sharpness_enhancer = ImageEnhance.Sharpness(image)
+        sharp_image = sharpness_enhancer.enhance(sharpness_factor)
+        if st.button("Apply Sharpness"):
+            st.image(sharp_image, caption="Sharpness Adjusted Image", use_column_width=True)
 
-            # Download Grayscale Image
-            buffer = BytesIO()
-            gray_image.save(buffer, format="JPEG")
-            buffer.seek(0)
-            st.download_button(
-                label="Download Grayscale Image",
-                data=buffer,
-                file_name="grayscale_image.jpg",
-                mime="image/jpeg"
-            )
+        # Contrast Filter
+        contrast_factor = st.slider("Adjust Contrast", 0.0, 3.0, 1.0, 0.1)
+        contrast_enhancer = ImageEnhance.Contrast(image)
+        contrast_image = contrast_enhancer.enhance(contrast_factor)
+        if st.button("Apply Contrast"):
+            st.image(contrast_image, caption="Contrast Adjusted Image", use_column_width=True)
 
-        # Apply Blur
-        if st.button("Apply Blur"):
-            blurred_image = image.filter(ImageFilter.BLUR)
-            st.image(blurred_image, caption="Blurred Image", use_column_width=True)
+        # Brightness Filter
+        brightness_factor = st.slider("Adjust Brightness", 0.0, 3.0, 1.0, 0.1)
+        brightness_enhancer = ImageEnhance.Brightness(image)
+        brightness_image = brightness_enhancer.enhance(brightness_factor)
+        if st.button("Apply Brightness"):
+            st.image(brightness_image, caption="Brightness Adjusted Image", use_column_width=True)
 
-            # Download Blurred Image
-            buffer = BytesIO()
-            blurred_image.save(buffer, format="JPEG")
-            buffer.seek(0)
-            st.download_button(
-                label="Download Blurred Image",
-                data=buffer,
-                file_name="blurred_image.jpg",
-                mime="image/jpeg"
-            )
+        # Color Filter
+        color_factor = st.slider("Adjust Color", 0.0, 3.0, 1.0, 0.1)
+        color_enhancer = ImageEnhance.Color(image)
+        color_image = color_enhancer.enhance(color_factor)
+        if st.button("Apply Color Adjustment"):
+            st.image(color_image, caption="Color Adjusted Image", use_column_width=True)
+
+        # Edge Enhancement Filter
+        if st.button("Apply Edge Enhancement"):
+            edge_image = image.filter(ImageFilter.EDGE_ENHANCE)
+            st.image(edge_image, caption="Edge Enhanced Image", use_column_width=True)
+
+        # Emboss Filter
+        if st.button("Apply Emboss"):
+            emboss_image = image.filter(ImageFilter.EMBOSS)
+            st.image(emboss_image, caption="Embossed Image", use_column_width=True)
+
+        # Contour Filter
+        if st.button("Apply Contour"):
+            contour_image = image.filter(ImageFilter.CONTOUR)
+            st.image(contour_image, caption="Contoured Image", use_column_width=True)
+
+        # Gaussian Blur Filter
+        blur_radius = st.slider("Adjust Gaussian Blur Radius", 0.0, 10.0, 1.0, 0.1)
+        if st.button("Apply Gaussian Blur"):
+            gaussian_blur_image = image.filter(ImageFilter.GaussianBlur(blur_radius))
+            st.image(gaussian_blur_image, caption="Gaussian Blurred Image", use_column_width=True)
 
 elif menu == "Meet the Members":
     st.title("Meet the Members of Group 8")
