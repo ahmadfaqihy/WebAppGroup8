@@ -27,7 +27,7 @@ if menu == "Home":
         <div class="Home">
             <h1>Welcome to Group 8 Website Image Filtering Application!</h1>
             <p>Explore various capability to alter your image using the application of Image Processing with Linear Algebra Principle:</p>
-            <ul style="text-align: center;">
+            <ul style="text-align: left;">
                 <li>Upload and process your images</li>
                 <li>Convert to grayscale, blur, sepia tone, contour, sharpness adjustment, and many more!</li>
                 <li>Download the processed images</li>
@@ -41,10 +41,6 @@ if menu == "Home":
         """,
         unsafe_allow_html=True,
     )
-
-elif menu == "Group 8":
-    st.title("Group 8 Introduction")
-    st.write("This section contains information about Group 8's image filtering application.")
 
 elif menu == "Apply Filter":
     st.title("Apply Filter")
