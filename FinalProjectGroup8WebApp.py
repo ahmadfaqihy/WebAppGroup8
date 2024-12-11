@@ -31,7 +31,7 @@ if menu == "Home":
         """
         <div class="Home">
             <h1>Welcome to Group 8 Website Image Filtering Application!</h1>
-            img src="https://github.com/ahmadfaqihy/WebAppGroup8/blob/master/logo_pu.png" alt="Logo" style="width: 200px; display: block; margin-left: auto; margin-right: auto;"
+            <img src="https://github.com/ahmadfaqihy/WebAppGroup8/blob/master/logo_pu.png" alt="Logo" style="width: 200px; display: block; margin-left: auto; margin-right: auto;">
             <p>Explore various capability to alter your image using the application of Image Processing with Linear Algebra Principle:</p>
             <ul style="text-align: left;">
                 <li>Upload and process your images</li>
