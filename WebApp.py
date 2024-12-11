@@ -4,6 +4,9 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 import cv2
 import numpy as np
+import streamlit as st
+from PIL import Image, ImageFilter
+from io import BytesIO
 
 # Function for the navigation bar
 def nav_bar():
@@ -47,13 +50,13 @@ def nav_bar():
     )
 
 # Extract current page from query params
-menu = st.query_params().get("page", ["Landing Page"])[0]
+current_page = st.query_params().get("page", ["Landing Page"])[0]
 
 # Display the navigation bar
 nav_bar()
 
 # Page logic
-if menu == "Landing Page":
+if current_page == "Landing Page":
     st.title("Welcome to the Image Processing App")
     st.write(
         """
@@ -64,25 +67,46 @@ if menu == "Landing Page":
         - Detect edges with advanced algorithms
         """
     )
+elif current_page == "Application":
+    st.title("Image Processing Application")
+    uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
-# Landing Page
-if menu == "Landing Page":
-    st.markdown(
-        """
-        <style>
-        .landing-page {
-            text-align: center;
-            padding: 50px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file)
+        st.image(image, caption="Uploaded Image", use_column_width=True)
 
+        # Convert to Grayscale
+        if st.button("Convert to Grayscale"):
+            gray_image = image.convert("L")
+            st.image(gray_image, caption="Grayscale Image", use_column_width=True)
 
+            # Download Grayscale Image
+            buffer = BytesIO()
+            gray_image.save(buffer, format="JPEG")
+            buffer.seek(0)
+            st.download_button(
+                label="Download Grayscale Image",
+                data=buffer,
+                file_name="grayscale_image.jpg",
+                mime="image/jpeg"
+            )
+
+        # Apply Blur
+        if st.button("Apply Blur"):
+            blurred_image = image.filter(ImageFilter.BLUR)
+            st.image(blurred_image, caption="Blurred Image", use_column_width=True)
+
+            # Download Blurred Image
+            buffer = BytesIO()
+            blurred_image.save(buffer, format="JPEG")
+            buffer.seek(0)
+            st.download_button(
+                label="Download Blurred Image",
+                data=buffer,
+                file_name="blurred_image.jpg",
+                mime="image/jpeg"
+            )
+            
 # Image Processing Application
 elif menu == "Image Processing Application":
     st.title("Image Processing Application")
