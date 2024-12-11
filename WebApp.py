@@ -4,7 +4,11 @@ from io import BytesIO
 import cv2
 import numpy as np
 
-# Function for the navigation bar
+# Initialize session state for navigation
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "Landing Page"
+
+# Function to handle page navigation
 def nav_bar():
     st.markdown(
         """
@@ -30,33 +34,30 @@ def nav_bar():
         .active {
             color: #ffcccb;
             text-decoration: underline;
-     }
+        }
         </style>
         <div class="nav-bar">
-            <a href="#landing-page" id="landing-link" onclick="setPage('Landing Page')">Landing Page</a>
-            <a href="#app-page" id="app-link" onclick="setPage('Application')">Image Processing Application</a>
+            <a href="#" onclick="setPage('Landing Page')">Landing Page</a>
+            <a href="#" onclick="setPage('Application')">Image Processing Application</a>
         </div>
         <script>
         function setPage(page) {
-            const currentUrl = new URL(window.location.href);
-            currentUrl.searchParams.set("page", page);
-            window.location.href = currentUrl.toString();
+            fetch('/_stcore_set_state', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ key: 'current_page', value: page })
+            }).then(() => location.reload());
         }
         </script>
         """,
         unsafe_allow_html=True,
     )
 
-# Extract current page from query params
-# Extract current page from query params
-current_page = st.query_params.get("page", ["Landing Page","Application"])[0]
-
-
 # Display the navigation bar
 nav_bar()
 
-# Page logic
-if current_page == "Landing Page":
+# Page logic based on session state
+if st.session_state.current_page == "Landing Page":
     st.title("Welcome to the Image Processing App")
     st.write(
         """
@@ -67,7 +68,7 @@ if current_page == "Landing Page":
         - Detect edges with advanced algorithms
         """
     )
-elif current_page == "Application":
+elif st.session_state.current_page == "Application":
     st.title("Image Processing Application")
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
@@ -106,4 +107,3 @@ elif current_page == "Application":
                 file_name="blurred_image.jpg",
                 mime="image/jpeg"
             )
-
