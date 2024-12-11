@@ -3,8 +3,45 @@ from PIL import Image, ImageFilter
 from io import BytesIO
 import cv2
 import numpy as np
-# Sidebar navigation
-menu = st.sidebar.selectbox("Select Page", ["Landing Page", "Image Processing Application"])
+
+  <nav class="navbar navbar-expand-lg navbar-dark shadow" style="background-color:rgb(39, 66, 66)"
+>
+    <div class="container-fluid">
+      
+      <a class="navbar-brand" href="" style="padding-left:4rem ;"><i class="fas fa-circle-notch"></i></a>
+      <a class="navbar-brand" href="#Ahmad" style="padding-left:1rem ;">Ahmad Faqih Yassin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#About Me">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Biodata">Biodata</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Gallery">Highlight</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Gallery.html"><i class="far fa-image"></i></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#FindMe" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Find Me
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#Email">Email</a></li>
+              <li><a class="dropdown-item" href="#YouTube">YouTube</a></li>
+              <li><a class="dropdown-item" href="#Instagram">Instagram</a></li>
+              <li><a class="dropdown-item" href="#Twitter">Twitter</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 # Landing Page
 if menu == "Landing Page":
