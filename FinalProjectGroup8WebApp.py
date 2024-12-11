@@ -56,14 +56,14 @@ elif menu == "Apply Filter":
         sharpness_enhancer = ImageEnhance.Sharpness(image)
         sharp_image = sharpness_enhancer.enhance(sharpness_factor)
         if st.button("Apply Sharpness"):
-            st.image(sharp_image, caption="Sharpness Adjusted Image", use__width=True)
+            st.image(sharp_image, caption="Sharpness Adjusted Image", use_container_width=True)
 
         # Contrast Filter
         contrast_factor = st.slider("Adjust Contrast", 0.0, 3.0, 1.0, 0.1)
         contrast_enhancer = ImageEnhance.Contrast(image)
         contrast_image = contrast_enhancer.enhance(contrast_factor)
         if st.button("Apply Contrast"):
-            st.image(contrast_image, caption="Contrast Adjusted Image", use__width=True)
+            st.image(contrast_image, caption="Contrast Adjusted Image", use_container_width=True)
 
         # Brightness Filter
         brightness_factor = st.slider("Adjust Brightness", 0.0, 3.0, 1.0, 0.1)
