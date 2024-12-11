@@ -70,29 +70,29 @@ elif menu == "Apply Filter":
         brightness_enhancer = ImageEnhance.Brightness(image)
         brightness_image = brightness_enhancer.enhance(brightness_factor)
         if st.button("Apply Brightness"):
-            st.image(brightness_image, caption="Brightness Adjusted Image", use_container_=True)
+            st.image(brightness_image, caption="Brightness Adjusted Image", use_container_width=True)
 
         # Color Filter
         color_factor = st.slider("Adjust Color", 0.0, 3.0, 1.0, 0.1)
         color_enhancer = ImageEnhance.Color(image)
         color_image = color_enhancer.enhance(color_factor)
         if st.button("Apply Color Adjustment"):
-            st.image(color_image, caption="Color Adjusted Image", use_container_=True)
+            st.image(color_image, caption="Color Adjusted Image", use_container_width=True)
 
         # Edge Enhancement Filter
         if st.button("Apply Edge Enhancement"):
             edge_image = image.filter(ImageFilter.EDGE_ENHANCE)
-            st.image(edge_image, caption="Edge Enhanced Image", use_container_=True)
+            st.image(edge_image, caption="Edge Enhanced Image", use_container_width=True)
 
         # Emboss Filter
         if st.button("Apply Emboss"):
             emboss_image = image.filter(ImageFilter.EMBOSS)
-            st.image(emboss_image, caption="Embossed Image", use_container_=True)
+            st.image(emboss_image, caption="Embossed Image", use_container_width=True)
 
         # Contour Filter
         if st.button("Apply Contour"):
             contour_image = image.filter(ImageFilter.CONTOUR)
-            st.image(contour_image, caption="Contoured Image", use_container_=True)
+            st.image(contour_image, caption="Contoured Image", use_container_width=True)
 
         # Gaussian Blur Filter
         blur_radius = st.slider("Adjust Gaussian Blur Radius", 0.0, 10.0, 1.0, 0.1)
