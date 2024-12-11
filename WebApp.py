@@ -44,7 +44,7 @@ def nav_bar():
     )
 
 # Extract current page from query params
-current_page = st.experimental_get_query_params().get("page", ["Landing Page"])[0]
+current_page = st.query_params().get("page", ["Landing Page"])[0]
 
 # Display the navigation bar
 nav_bar()
