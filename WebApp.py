@@ -4,6 +4,48 @@ from io import BytesIO
 import cv2
 import numpy as np
 
+# Inject custom CSS for styling
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+    .header {
+        text-align: center;
+        padding: 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+    }
+    .section {
+        margin: 20px 0;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Add a custom HTML header
+st.markdown(
+    """
+    <div class="header">
+        <h1>Image Processing Web Application</h1>
+        <p>A simple and user-friendly tool for basic image processing.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Application functionality
+st.markdown('<div class="section">', unsafe_allow_html=True)
+
 # Title and Description
 st.title("Image Processing Web Application")
 st.write("A simple web application for basic image processing tasks.")
@@ -44,6 +86,7 @@ if uploaded_file is not None:
             mime="image/jpeg"
     )
 
+st.markdown('</div>', unsafe_allow_html=True)
 
     
 
