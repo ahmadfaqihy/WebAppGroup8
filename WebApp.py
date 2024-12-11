@@ -38,7 +38,9 @@ def nav_bar():
         </div>
         <script>
         function setPage(page) {
-            fetch('/?page=' + page).then(() => location.reload());
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set("page", page);
+            window.location.href = currentUrl.toString();
         }
         </script>
         """,
