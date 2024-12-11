@@ -1,47 +1,68 @@
+
 import streamlit as st
 from PIL import Image, ImageFilter
 from io import BytesIO
 import cv2
 import numpy as np
+# Function for the navigation bar
+def nav_bar():
+    st.markdown(
+        """
+        <style>
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav-bar a:hover {
+            color: #ffcccb;
+        }
+        .active {
+            color: #ffcccb;
+            text-decoration: underline;
+        }
+        </style>
+        <div class="nav-bar">
+            <a href="#landing-page" id="landing-link" onclick="setPage('Landing Page')">Landing Page</a>
+            <a href="#app-page" id="app-link" onclick="setPage('Application')">Image Processing Application</a>
+        </div>
+        <script>
+        function setPage(page) {
+            fetch('/?page=' + page).then(() => location.reload());
+        }
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
 
-  <nav class="navbar navbar-expand-lg navbar-dark shadow" style="background-color:rgb(39, 66, 66)"
->
-    <div class="container-fluid">
-      
-      <a class="navbar-brand" href="" style="padding-left:4rem ;"><i class="fas fa-circle-notch"></i></a>
-      <a class="navbar-brand" href="#Ahmad" style="padding-left:1rem ;">Ahmad Faqih Yassin</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#About Me">About Me</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Biodata">Biodata</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Gallery">Highlight</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Gallery.html"><i class="far fa-image"></i></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#FindMe" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Find Me
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#Email">Email</a></li>
-              <li><a class="dropdown-item" href="#YouTube">YouTube</a></li>
-              <li><a class="dropdown-item" href="#Instagram">Instagram</a></li>
-              <li><a class="dropdown-item" href="#Twitter">Twitter</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+# Extract current page from query params
+current_page = st.experimental_get_query_params().get("page", ["Landing Page"])[0]
+
+# Display the navigation bar
+nav_bar()
+
+# Page logic
+if current_page == "Landing Page":
+    st.title("Welcome to the Image Processing App")
+    st.write(
+        """
+        Explore the features of this web application:
+        - Upload and process images
+        - Convert images to grayscale
+        - Apply blur effects
+        - Detect edges with advanced algorithms
+        """
+    )
 
 # Landing Page
 if menu == "Landing Page":
@@ -118,5 +139,3 @@ elif menu == "Image Processing Application":
                 file_name="blurred_image.jpg",
                 mime="image/jpeg"
             )
-
-
