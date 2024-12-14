@@ -135,13 +135,43 @@ elif menu == "Apply Filter":
             st.image(sepia_image, caption="Sepia Image", use_container_width=True)
 
 elif menu == "Meet the Members":
-    st.title("Meet the Members of Group 8")
-    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/3.png", caption="Ahmad Faqih Yassin")
-    st.write("Role: Team Leader")
-    st.write("004202305045")
-
-    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/2.png", caption="Miftakhul Adam")
-    st.write("004202305068")
-
-    st.image("https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/1.png", caption="Ridho Alhabsy")
-    st.write("004202305068")
+            # Title - Centered
+            st.markdown(
+                "<h1 style='text-align: center;'>Meet the Members of Group 8</h1>",
+                unsafe_allow_html=True
+            )
+            
+            # Centered layout for each member using HTML and CSS
+            st.markdown(
+                """
+                <div style='text-align: center;'>
+                    <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/3.png" width="300">
+                    <h4>Ahmad Faqih Yassin</h4>
+                    <p>Role: Team Leader</p>
+                    <p>004202305045</p>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+            
+            st.markdown(
+                """
+                <div style='text-align: center;'>
+                    <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/2.png" width="300">
+                    <h4>Miftakhul Adam</h4>
+                    <p>004202305068</p>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+            
+            st.markdown(
+                """
+                <div style='text-align: center;'>
+                    <img src="https://raw.githubusercontent.com/ahmadfaqihy/WebAppGroup8/refs/heads/master/1.png" width="300">
+                    <h4>Ridho Alhabsy</h4>
+                    <p>004202305068</p>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
